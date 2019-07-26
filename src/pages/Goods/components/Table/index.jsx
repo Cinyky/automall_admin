@@ -4,13 +4,17 @@ import IceContainer from '@icedesign/container';
 import Filter from '../Filter';
 import styles from './index.module.scss';
 
+import request from '@/utils/request';
+import { goods } from '../../../../dataSourceConfig';
+
 // Random Numbers
 const random = (min, max) => {
   return Math.floor(Math.random() * (max - min + 1) + min);
 };
 
 // MOCK 数据，实际业务按需进行替换
-const getData = (length = 10) => {
+async function getData(length = 10) {
+  /*
   return Array.from({ length }).map(() => {
     return {
       name: ['蓝牙音箱', '天猫精灵', '智能机器人'][random(0, 2)],
@@ -21,6 +25,9 @@ const getData = (length = 10) => {
       service: ['可预约', '可体验'][random(0, 1)],
     };
   });
+  */
+  const { data } = await request(goods);
+  return data;
 };
 
 export default function GoodsTable() {
@@ -98,12 +105,23 @@ export default function GoodsTable() {
       </IceContainer>
       <IceContainer>
         <Table loading={isLoading} dataSource={dataSource} hasBorder={true}>
-          <Table.Column title="商品名称" dataIndex="name" />
-          <Table.Column title="商品分类" dataIndex="cate" />
-          <Table.Column title="商品标签" dataIndex="tag" />
-          <Table.Column title="在售门店" dataIndex="store" />
-          <Table.Column title="总销量" dataIndex="sales" />
-          <Table.Column title="商品服务" dataIndex="service" />
+          <Table.Column title="商品名称" dataIndex="title"  />
+          <Table.Column title="商品描述" dataIndex="description" width={300}/>
+          <Table.Column title="品牌" dataIndex="band" />
+          <Table.Column title="型号" dataIndex="mark" />
+          <Table.Column title="配置" dataIndex="sales" />
+          <Table.Column title="上牌时间" dataIndex="regTime" />
+          <Table.Column title="保险时间" dataIndex="insuranceTime" />
+          <Table.Column title="验车时间" dataIndex="checkTime" />
+          <Table.Column title="过户次数" dataIndex="transferNum" />
+          <Table.Column title="汽车排量" dataIndex="outputVolume" />
+          <Table.Column title="行驶里程" dataIndex="distance" />
+          <Table.Column title="价格(w)" dataIndex="price" />
+          <Table.Column title="汽车排放标准" dataIndex="outputStandard" />
+          <Table.Column title="车身颜色" dataIndex="color" />
+          <Table.Column title="状态" dataIndex="status" />
+          <Table.Column title="创建时间" dataIndex="createTime" />
+          <Table.Column title="更新时间" dataIndex="updateTime" />
           <Table.Column
             title="操作"
             width={200}
