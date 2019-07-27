@@ -8,7 +8,7 @@ export default async function request(options) {
   try {
     console.error(process.env);
     if (!options.baseURL) {
-      options.baseURL = 'http://localhost:8388';
+      options.baseURL = API.product;
     }
     console.log(options);
     const response = await axios(options);
