@@ -1,14 +1,14 @@
 import axios from 'axios';
 import { Message } from '@alifd/next';
-import { API } from '../dataSourceConfig';
+import { host } from '../dataSourceConfig';
 
 // Set baseUrl when debugging production url in dev mode
 
 export default async function request(options) {
   try {
-    console.error(process.env);
+    // console.error(process.env);
     if (!options.baseURL) {
-      options.baseURL = API.product;
+      options.baseURL = host;
     }
     console.log(options);
     const response = await axios(options);

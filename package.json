@@ -5,7 +5,7 @@
   "author": "cyy",
   "private": true,
   "dependencies": {
-    "@alifd/next": "^1.x",
+    "@alifd/next": "^1.18.17",
     "@antv/data-set": "^0.9.5",
     "@icedesign/container": "^1.x",
     "@icedesign/form-binder": "^1.x",
@@ -30,6 +30,7 @@
     "eslint": "^6.0.1",
     "ice-plugin-fusion": "^0.1.4",
     "ice-plugin-moment-locales": "^0.1.0",
+    "ice-plugin-smart-debug": "^0.1.2",
     "ice-scripts": "^2.0.0",
     "stylelint": "^10.1.0",
     "webpack": "^4.38.0",

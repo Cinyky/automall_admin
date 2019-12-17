@@ -8,6 +8,7 @@ import {
   DatePicker,
   Radio,
   Select,
+  Upload
 } from '@alifd/next';
 import {
   FormBinderWrapper as IceFormBinderWrapper,
@@ -20,6 +21,8 @@ import styles from './index.module.scss';
 const { Option } = Select;
 const { Group: RadioGroup } = Radio;
 const { RangePicker } = DatePicker;
+import { GoodsAPI } from '../../../../dataSourceConfig';
+
 
 export default function GoodsForm() {
   const formEl = useRef(null);
@@ -140,6 +143,21 @@ export default function GoodsForm() {
               />
             </IceFormBinder>
           </div>
+
+          <div className={styles.formItem}>
+            <div className={styles.formLabel}>体验展示：</div>
+            <IceFormBinder name="image">
+              <Upload.Card
+                listType="card"
+                action={GoodsAPI.upload}
+                accept="image/png, image/jpg, image/jpeg, image/gif, image/bmp"
+                defaultValue={[]}
+                limit={2}
+                name="image"
+              />
+            </IceFormBinder>
+          </div>
+
           <Button type="primary" onClick={validateAllFormField}>
             提 交
           </Button>

@@ -7,11 +7,23 @@ module.exports = {
     '@': path.resolve(__dirname, './src'),
   },
   plugins: [
-    ['ice-plugin-fusion', {
-      themePackage: '@icedesign/theme',
-    }],
-    ['ice-plugin-moment-locales', {
-      locales: ['zh-cn'],
-    }],
+    [
+      'ice-plugin-fusion',
+      {
+        themePackage: '@icedesign/theme',
+      },
+    ],
+    [
+      'ice-plugin-moment-locales',
+      {
+        locales: ['zh-cn'],
+      },
+    ],
+    [
+      'ice-plugin-smart-debug'
+    ]
   ],
+  hash: false,
+  minify: true,
+  vendor: false,
 };
